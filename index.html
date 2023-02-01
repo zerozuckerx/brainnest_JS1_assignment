@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title>Main assignment</title>
-	</head>
-	<body>
-		<script>
+<head>
+	<meta charset="utf-8">
+	<title>Main assignment</title>
+</head>
+<body>
+	<script>
 
-		</script>
-	</body>
+		let gameStates = ["rock", "paper", "scissors"];
+
+		function computerPlay() {
+			let computerSelection;
+			let randomNumber = Math.floor(Math.random() * 3); //random number between 0 and 2
+
+			// if(randomNumber == 0) {
+			// 	computerSelection = gameStates[0];
+			// } else if (randomNumber == 1) {
+			// 	computerSelection = gameStates[1];
+			// } else if (randomNumber == 2) {
+			// 	computerSelection = gameStates[2];
+			// }
+
+			// switch(randomNumber) {
+			// 	case 0: computerSelection = "rock"
+			// 		break;
+			// 	case 1: computerSelection = "paper"
+			// 		break;
+			// 	case 2: computerSelection = "scissors"
+			// 		break;
+			// 	default:
+			// 		console.log("error with computerSelection")
+			// }
+
+			for(let i=0; i<gameStates.length; i++) {
+				if(i==randomNumber) {
+					computerSelection = gameStates[i]
+					console.log(computerSelection);
+				}
+			}
+			// console.log(computerSelection);
+		}
+
+	</script>
+</body>
 </html>
