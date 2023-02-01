@@ -11,34 +11,34 @@
 
 		function computerPlay() {
 			let computerSelection;
-			let randomNumber = Math.floor(Math.random() * 3); //random number between 0 and 2
-
-			// if(randomNumber == 0) {
-			// 	computerSelection = gameStates[0];
-			// } else if (randomNumber == 1) {
-			// 	computerSelection = gameStates[1];
-			// } else if (randomNumber == 2) {
-			// 	computerSelection = gameStates[2];
-			// }
-
-			// switch(randomNumber) {
-			// 	case 0: computerSelection = "rock"
-			// 		break;
-			// 	case 1: computerSelection = "paper"
-			// 		break;
-			// 	case 2: computerSelection = "scissors"
-			// 		break;
-			// 	default:
-			// 		console.log("error with computerSelection")
-			// }
+			let randomNumber = Math.floor(Math.random() * 3); //random number (0 - 2 for array looping)
 
 			for(let i=0; i<gameStates.length; i++) {
 				if(i==randomNumber) {
-					computerSelection = gameStates[i]
-					console.log(computerSelection);
+					computerSelection = gameStates[i];
+					console.log("computer: " + computerSelection);
+					return(computerSelection);
 				}
 			}
-			// console.log(computerSelection);
+		}
+
+		function playRound(playerSelection, computerSelection) {
+
+			if(playerSelection == "rock" && computerSelection == "paper") {
+				console.log("You lose! Paper beats rock");
+			} else if(playerSelection == "rock" && computerSelection == "scissors") {
+				console.log("You win! Rock beats scissors");
+			} else if(playerSelection == "paper" && computerSelection == "rock") {
+				console.log("You win! Paper beats rock");
+			} else if(playerSelection == "paper" && computerSelection == "scissors") {
+				console.log("You lose! Scissors beats paper");
+			} else if(playerSelection == "scissors" && computerSelection == "rock") {
+				console.log("You lose! Rock beats scissors");
+			} else if(playerSelection == "scissors" && computerSelection == "paper") {
+				console.log("You win! Scissors beat paper");
+			} else { //draw
+				console.log("It's a draw! You both chose " + computerSelection);
+			}
 		}
 
 	</script>
