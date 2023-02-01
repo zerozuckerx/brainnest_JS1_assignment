@@ -8,6 +8,8 @@
 	<script>
 
 		let gameStates = ["rock", "paper", "scissors"];
+		let playerCount;
+		let computerCount;
 
 		function computerPlay() {
 			let randomNumber = Math.floor(Math.random() * 3); //random number (0 - 2 for array looping)
@@ -21,26 +23,6 @@
 			}
 		}
 
-		// function playRound(playerSelection, computerSelection) {
-		// 	playerSelection = playerSelection.toLowerCase();
-		//
-		// 	if(playerSelection == "rock" && computerSelection == "paper") {
-		// 		return `You lose! ${computerSelection} beats ${playerSelection}`
-		// 	} else if(playerSelection == "rock" && computerSelection == "scissors") {
-		// 		console.log("You win! Rock beats scissors");
-		// 	} else if(playerSelection == "paper" && computerSelection == "rock") {
-		// 		console.log("You win! Paper beats rock");
-		// 	} else if(playerSelection == "paper" && computerSelection == "scissors") {
-		// 		console.log("You lose! Scissors beats paper");
-		// 	} else if(playerSelection == "scissors" && computerSelection == "rock") {
-		// 		console.log("You lose! Rock beats scissors");
-		// 	} else if(playerSelection == "scissors" && computerSelection == "paper") {
-		// 		console.log("You win! Scissors beat paper");
-		// 	} else { //draw
-		// 		console.log("It's a draw! You both chose " + playerSelection);
-		// 	}
-		// }
-
 		function playRound(playerSelection) {
 			playerSelection = playerSelection.toLowerCase();
 			computerSelection = computerPlay();
@@ -49,6 +31,7 @@
 				case (playerSelection == "rock" && computerSelection == "scissors"):
 				case (playerSelection == "scissors" && computerSelection == "paper"):
 				case (playerSelection == "paper" && computerSelection == "rock"):
+					// playerCount++;
 					return `You win! ${playerSelection} beats ${computerSelection}`;
 					break;
 
@@ -58,10 +41,18 @@
 					return `You lose! ${computerSelection} beats ${playerSelection}`;
 					break;
 
-				case playerSelection == computerSelection:
+				case (playerSelection == computerSelection):
 					return `It's a draw! You both chose ${playerSelection}`
 					break;
 			}
+		}
+
+		function game(playerSelection) {
+			// for(let i=0; i<5; i++) {
+				playRound(playerSelection);
+				console.log("test");
+				// console.log(playerCount);
+			// }
 		}
 
 	</script>
