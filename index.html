@@ -23,9 +23,12 @@
 			}
 		}
 
-		function playRound(playerSelection) {
+		function playRound() {
+			let playerSelection = prompt("Choose your weapon: Rock, paper or scissors?")
 			playerSelection = playerSelection.toLowerCase();
+			console.log("player: " + playerSelection);
 			computerSelection = computerPlay();
+			console.log("computer: " + computerSelection);
 
 			switch(true) {
 				case (playerSelection == "rock" && computerSelection == "scissors"):
