@@ -56,10 +56,10 @@
 		}
 
 		function game(input) {
-			console.log("Round 1: ");
+			console.log(` ________ \n|Round 1:| \n ‾‾‾‾‾‾‾‾`);
 			for(let i=1; i<5; i++) {
 				console.log(playRound(input));
-				console.log(`Game record after round ${i}: \n***player ${playerCount}:${computerCount} computer*** \n________ \nRound ${i+1}: \n‾‾‾‾‾‾‾‾`)
+				console.log(`Game record after round ${i}: \n***player ${playerCount}:${computerCount} computer*** \n ________ \n|Round ${i+1}:|  \n ‾‾‾‾‾‾‾‾`)
 			}
 			console.log(playRound(input));
 
