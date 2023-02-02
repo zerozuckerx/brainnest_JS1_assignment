@@ -8,8 +8,8 @@
 	<script>
 
 		let gameStates = ["rock", "paper", "scissors"];
-		let playerCount;
-		let computerCount;
+		let playerCount = 0;
+		let computerCount = 0;
 
 		function computerPlay() {
 			let randomNumber = Math.floor(Math.random() * 3); //random number (0 - 2 for array looping)
@@ -32,20 +32,21 @@
 				playerSelection = input.toLowerCase();
 			}
 			computerSelection = computerPlay();
-			// console.log("player: " + playerSelection);
-			// console.log("computer: " + computerSelection);
+			console.log("player: " + playerSelection);
+			console.log("computer: " + computerSelection);
 
 			switch(true) {
 				case (playerSelection == "rock" && computerSelection == "scissors"):
 				case (playerSelection == "scissors" && computerSelection == "paper"):
 				case (playerSelection == "paper" && computerSelection == "rock"):
-					// playerCount++;
+					playerCount++;
 					return `You win! ${playerSelection} beats ${computerSelection}`;
 					break;
 
 				case (playerSelection == "scissors" && computerSelection == "rock"):
 				case (playerSelection == "rock" && computerSelection == "paper"):
 				case (playerSelection == "paper" && computerSelection == "scissors"):
+					computerCount++;
 					return `You lose! ${computerSelection} beats ${playerSelection}`;
 					break;
 
@@ -56,11 +57,23 @@
 		}
 
 		function game(input) {
-			// for(let i=0; i<5; i++) {
+			console.log("Round 1: ");
+			for(let i=1; i<5; i++) {
 				console.log(playRound(input));
-				// console.log(playerCount);
-			// }
-		}
+				console.log(`Game record after round ${i}: \n***player ${playerCount}:${computerCount} computer*** \n________ \nRound ${i+1}: \n‾‾‾‾‾‾‾‾`)
+			}
+			console.log(playRound(input));
+
+			if(playerCount > computerCount) {
+				console.log(`***Player wins this game with ${playerCount} points***`);
+			} else if (playerCount < computerCount) {
+				console.log(`***Computer wins this game with ${computerCount} points***`);
+			} else {
+				console.log("***It's a draw! No winner***");
+			}
+				playerCount = 0;
+				computerCount = 0;
+			}
 
 	</script>
 </body>
