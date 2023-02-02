@@ -17,7 +17,6 @@
 			for(let i=0; i<gameStates.length; i++) {
 				if(i==randomNumber) {
 					let computerSelection = gameStates[i];
-					// console.log(`computer: ${computerSelection}`);
 					return(computerSelection);
 				}
 			}
@@ -25,12 +24,12 @@
 
 		function playRound(input) {
 			let playerSelection;
-			//check if player started the game with or without an input
+			//check if player started the game with an input
 			if(input == undefined) {
-				playerSelection = prompt("Choose your weapon: Rock, paper or scissors?")
-			} else {
-				playerSelection = input.toLowerCase();
+				input = prompt("Choose your weapon: Rock, paper or scissors?")
 			}
+			playerSelection = input.toLowerCase();
+
 			computerSelection = computerPlay();
 			console.log("player: " + playerSelection);
 			console.log("computer: " + computerSelection);
