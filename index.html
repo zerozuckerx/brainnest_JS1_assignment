@@ -50,30 +50,35 @@
 				case (playerSelection == computerSelection):
 					return `It's a draw! You both chose ${playerSelection}`
 			}
-		}
+			}
 
 		function game(input) {
 			console.log(` ________ \n|Round 1:| \n ‾‾‾‾‾‾‾‾`);
-			for(let i=1; i<5; i++) { //looping 4 times
+			//looping 4 times with "round counter", then once without
+			for(let i=1; i<5; i++) {
 				console.log(playRound(input));
 				console.log(`Game record after round ${i}: \n***player ${playerCount}:${computerCount} computer*** \n ________ \n|Round ${i+1}:|  \n ‾‾‾‾‾‾‾‾`)
 			}
 			console.log(playRound(input));
+			console.log(logWinner());
+			//reset game counts
+			playerCount = 0;
+			computerCount = 0;
+			}
 
+		function logWinner() {	//print winner
 			if(playerCount > computerCount) {
-				console.log(`***Player wins this game with ${playerCount} points***`);
+				return `***Player wins this game with ${playerCount} points***`;
 			} else if (playerCount < computerCount) {
-				console.log(`***Computer wins this game with ${computerCount} points***`);
+				return `***Computer wins this game with ${computerCount} points***`;
 			} else {
-				console.log(`***It's a draw! Both have ${playerCount} points.***`);
+				return `***It's a draw! Both have ${playerCount} points.***`;
 			}
-				playerCount = 0;
-				computerCount = 0;
-			}
+		}
 
-		function test(input) {
-			if(!gameStates.includes(input.toLowerCase())) {
-			return "Input not valid. Please choose rock, paper or scissors";
+		function checkValid(string) {
+			if(gameStates.includes(string.toLowerCase())) {
+			// console.log("Input not valid. Please choose rock, paper or scissors");
 			}
 		}
 
